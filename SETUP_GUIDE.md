@@ -13,7 +13,9 @@ ai-benchmarks/
 ├── benchmarks/
 │   ├── aime2025/          # AIME 2025 benchmark (no external deps)
 │   ├── gaia/              # GAIA benchmark (no external deps)
+│   ├── gsm8k/             # GSM8K benchmark (datasets)
 │   └── swebench/          # SWE-bench (requires docker, datasets, etc.)
+│ 
 └── examples/              # Usage examples
 ```
 
@@ -31,6 +33,9 @@ uv pip install -e ".[aime]"
 
 # Install core + GAIA benchmark only
 uv pip install -e ".[gaia]"
+
+# Install core + GSM8K benchmark only
+uv pip install -e ".[gsm8k]"
 
 # Install core + SWE-bench only (includes heavy dependencies)
 uv pip install -e ".[swebench]"
