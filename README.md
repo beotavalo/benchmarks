@@ -9,6 +9,7 @@ A modular collection of standardized benchmarks for evaluating AI models. Each b
 uv pip install -e ".[aime]"        # Just AIME (no external deps)
 uv pip install -e ".[gaia]"        # Just GAIA (no external deps)
 uv pip install -e ".[swebench]"    # Just SWE-bench (Docker, datasets, etc.)
+uv pip install -e ".[gsm8k]"       # Just GSM8K (datasets)
 uv pip install -e ".[all]"         # Everything
 
 # Check what's installed
@@ -37,6 +38,12 @@ See [SETUP_GUIDE.md](SETUP_GUIDE.md) for detailed installation and usage instruc
 - Includes test execution to verify correctness
 - See `swebench/README.md` for details
 
+### GSM8K (Grade School Math)
+- Mathematical reasoning benchmark
+- 1319 problems from the GSM8K test set
+- Integer answers
+- See `benchmarks/gsm8k/README.md` for details
+
 ## Unified Interface
 
 All benchmarks implement a common interface defined in `base_benchmark.py`:
@@ -51,9 +58,10 @@ from core import BaseBenchmark, Task, EvaluationResult
 from benchmarks.aime2025 import AIMEBenchmark
 from benchmarks.gaia import GAIABenchmark
 from benchmarks.swebench import SWEBenchVerified
+from benchmarks.gsm8k import Gsm8kBenchmark
 
 # Initialize
-benchmark = AIMEBenchmark()  # or GAIABenchmark(), SWEBenchVerified()
+benchmark = AIMEBenchmark()  # or GAIABenchmark(), SWEBenchVerified(), Gsm8kBenchmark()
 
 # Get tasks
 task_ids = benchmark.get_task_ids()
@@ -86,6 +94,7 @@ if hasattr(benchmark, 'evaluate_with_execution'):
 ### Simple Evaluation Benchmarks
 - **AIME**: Compare numeric answers
 - **GAIA**: Compare text answers with normalization
+- **GSM8K**: Compare numeric answers
 
 These benchmarks inherit from `BaseBenchmark` and implement simple answer comparison.
 
@@ -101,14 +110,16 @@ These benchmarks inherit from `ExecutionBasedBenchmark` and provide both:
 See the `examples/` directory for complete examples:
 
 - `example_aime.py` - AIME usage example
-- `example_gaia.py` - GAIA usage example  
+- `example_gaia.py` - GAIA usage example
+- `example_gsm8k.py` - GSM8K usage example
 - `unified_example.py` - Shows unified interface across all benchmarks
 
 Run examples from the project root:
 ```bash
-python -m benchmarks.examples.example_aime
-python -m benchmarks.examples.example_gaia
-python -m benchmarks.examples.unified_example
+python -m examples.example_aime
+python -m examples.example_gaia
+python -m examples.example_gsm8k
+python -m examples.unified_example
 ```
 
 ## Directory Structure
@@ -128,12 +139,16 @@ ai-benchmarks/
 │   ├── gaia/           # GAIA benchmark (no external deps)
 │   │   ├── gaia_benchmark.py
 │   │   └── files/
+│   ├── gsm8k/          # GSM8K benchmark (datasets)
+│   │   ├── gsm8k_benchmark.py
+│   │   └── tasks/
 │   └── swebench/       # SWE-bench (Docker, datasets, etc.)
 │       ├── swebench.py
 │       └── harness/
 └── examples/           # Usage examples
     ├── example_aime.py
     ├── example_gaia.py
+    ├── example_gsm8k.py
     ├── unified_example.py
     └── modular_usage_example.py
 ```
@@ -147,4 +162,4 @@ Quick overview:
 2. Implement class inheriting from `BaseBenchmark` or `CodeExecutionBenchmark`
 3. Add dependencies to root `pyproject.toml` (if any)
 4. Update root `__init__.py` with try-except import
-5. Add tests, documentation, and examples 
+5. Add tests, documentation, and examples
