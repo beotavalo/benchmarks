@@ -75,6 +75,32 @@ def run_benchmark_if_available(benchmark_name: str):
             print("  Install with: uv pip install -e '.[swebench]'")
             print("  Note: SWE-bench requires Docker and other dependencies")
 
+    elif benchmark_name == "gsm8k":
+        try:
+            from benchmarks.gsm8k import Gsm8kBenchmark
+
+            print("✓ GSM8K benchmark is installed")
+
+            benchmark = Gsm8kBenchmark()
+            print(f"  Number of tasks: {len(benchmark.get_task_ids())}")
+
+        except ImportError:
+            print("✗ GSM8K benchmark not installed")
+            print("  Install with: uv pip install -e '.[gsm8k]'")
+
+    elif benchmark_name == "stark_amazon":
+        try:
+            from benchmarks.stark_amazon import StarkAmazonBenchmark
+
+            print("✓ Stark Amazon benchmark is installed")
+
+            benchmark = StarkAmazonBenchmark()
+            print(f"  Number of tasks: {len(benchmark.get_task_ids())}")
+
+        except ImportError:
+            print("✗ Stark Amazon benchmark not installed")
+            print("  Install with: uv pip install -e '.[stark_amazon]'")
+
 
 def main():
     """Check which benchmarks are available."""
@@ -84,7 +110,7 @@ def main():
     print("Checking installed benchmarks...\n")
 
     # Check each benchmark
-    for benchmark in ["aime", "gaia", "swebench"]:
+    for benchmark in ["aime", "gaia", "swebench", "gsm8k", "stark_amazon"]:
         run_benchmark_if_available(benchmark)
         print()
 
@@ -95,6 +121,8 @@ def main():
     print("  uv pip install -e '.[aime]'")
     print("  uv pip install -e '.[gaia]'")
     print("  uv pip install -e '.[swebench]'")
+    print("  uv pip install -e '.[gsm8k]'")
+    print("  uv pip install -e '.[stark_amazon]'")
 
 
 if __name__ == "__main__":

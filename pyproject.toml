@@ -24,6 +24,8 @@ browse_comp = [
 gsm8k = [
     "datasets>=2.14.0",
 ]
+stark_amazon = ["pandas>=2.0.0"] 
+
 # Install all benchmarks
 all = [
     "datasets>=2.14.0",

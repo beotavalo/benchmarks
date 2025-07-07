@@ -11,6 +11,8 @@ Run this from the project root directory:
 from benchmarks.aime2025 import AIMEBenchmark
 from benchmarks.gaia import GAIABenchmark
 from benchmarks.swebench import SWEBenchVerified
+from benchmarks.gsm8k import Gsm8kBenchmark
+from benchmarks.stark_amazon import StarkAmazonBenchmark
 
 
 def evaluate_on_benchmark(benchmark_class, model_output_func):
@@ -79,6 +81,20 @@ def main():
             return "Paris"
 
     evaluate_on_benchmark(GAIABenchmark, gaia_model)
+
+    # GSM8K: Grade school math problems
+    def gsm8k_model(task):
+        # A real model would solve the math problem
+        return "1234"
+
+    evaluate_on_benchmark(Gsm8kBenchmark, gsm8k_model)
+
+    # Stark Amazon: Question answering
+    def stark_amazon_model(task):
+        # A real model would answer the question
+        return "This is a dummy answer."
+
+    evaluate_on_benchmark(StarkAmazonBenchmark, stark_amazon_model)
 
     # SWE-bench: Code patches
     def swebench_model(task):
