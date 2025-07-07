@@ -12,6 +12,7 @@
 - **[benchmarks/gaia/README.md](benchmarks/gaia/README.md)** - GAIA benchmark details
 - **[benchmarks/swebench/README.md](benchmarks/swebench/README.md)** - SWE-bench details
 - **[benchmarks/browse_comp/README.md](benchmarks/browse_comp/README.md)** - BrowseComp benchmark details
+- **[benchmarks/gsm8k/README.md](benchmarks/gsm8k/README.md)** - GSM8K benchmark details
 
 ## Key Files
 
@@ -25,4 +26,5 @@
 - **[examples/unified_example.py](examples/unified_example.py)** - Unified interface across benchmarks
 - **[examples/example_aime.py](examples/example_aime.py)** - AIME usage
 - **[examples/example_gaia.py](examples/example_gaia.py)** - GAIA usage
-- **[examples/example_browse_comp.py](examples/example_browse_comp.py)** - BrowseComp usage 
+- **[examples/example_browse_comp.py](examples/example_browse_comp.py)** - BrowseComp usage
+- **[examples/example_gsm8k.py](examples/example_gsm8k.py)** - GSM8K usage  
