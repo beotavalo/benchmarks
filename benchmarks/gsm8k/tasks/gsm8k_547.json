@@ -1,0 +1,5 @@
+{
+    "task_id": "gsm8k_547",
+    "question": "A phone tree is used to contact families and relatives of Ali's deceased coworker. Ali decided to call 3 families. Then each family calls 3 other families, and so on. How many families will be notified during the fourth round of calls?",
+    "answer": "81"
+}

@@ -1,0 +1,5 @@
+{
+    "task_id": "gsm8k_643",
+    "question": "A news website publishes an average of 20 political and weather news articles every day. Its sister company publishes an average of 10 business news articles daily. Calculate the total number of articles the two websites published together in February if there are 28 days in the month.",
+    "answer": "840"
+}

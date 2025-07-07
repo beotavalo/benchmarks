@@ -1,0 +1,5 @@
+{
+    "task_id": "gsm8k_955",
+    "question": "A hospital has a capacity of 1000 beds with 1/5 occupied. Due to the coronavirus outbreak, 50 patients are admitted into the hospital each day. Calculate the total number of unoccupied beds in the hospital after 2 weeks.",
+    "answer": "100"
+}

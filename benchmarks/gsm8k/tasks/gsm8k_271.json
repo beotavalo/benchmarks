@@ -1,0 +1,5 @@
+{
+    "task_id": "gsm8k_271",
+    "question": "John has 2 houses with 3 bedrooms each.  Each bedroom has 2 windows each.  There are an additional 4 windows in each house not connected to bedrooms.  How many total windows are there between the houses?",
+    "answer": "20"
+}
