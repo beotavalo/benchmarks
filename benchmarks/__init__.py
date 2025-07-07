@@ -32,3 +32,9 @@ try:
     __all__.append("SwebenchBenchmark")
 except ImportError:
     pass
+
+try:
+    from .stark_amazon import StarkAmazonBenchmark
+    __all__.append("StarkAmazonBenchmark")
+except ImportError:
+    pass

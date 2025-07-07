@@ -14,6 +14,7 @@ ai-benchmarks/
 │   ├── aime2025/          # AIME 2025 benchmark (no external deps)
 │   ├── gaia/              # GAIA benchmark (no external deps)
 │   ├── gsm8k/             # GSM8K benchmark (datasets)
+│   ├── stark_amazon/      # Stark Amazon benchmark (no external deps)
 │   └── swebench/          # SWE-bench (requires docker, datasets, etc.)
 │ 
 └── examples/              # Usage examples
@@ -36,6 +37,9 @@ uv pip install -e ".[gaia]"
 
 # Install core + GSM8K benchmark only
 uv pip install -e ".[gsm8k]"
+
+# Install core + Stark Amazon benchmark only
+uv pip install -e ".[stark_amazon]"
 
 # Install core + SWE-bench only (includes heavy dependencies)
 uv pip install -e ".[swebench]"
