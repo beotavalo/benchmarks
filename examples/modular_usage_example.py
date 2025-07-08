@@ -100,6 +100,19 @@ def run_benchmark_if_available(benchmark_name: str):
         except ImportError:
             print("✗ Stark Amazon benchmark not installed")
             print("  Install with: uv pip install -e '.[stark_amazon]'")
+    
+    elif benchmark_name == "ml_bench":
+        try:
+            from benchmarks.ml_bench import MLBenchBenchmark
+
+            print("✓ ML-Bench benchmark is installed")
+
+            benchmark = MLBenchBenchmark()
+            print(f"  Number of tasks: {len(benchmark.get_task_ids())}")
+
+        except ImportError:
+            print("✗ ML-Bench benchmark not installed")
+            print("  Install with: uv pip install -e '.[ml_bench]'")
 
 
 def main():
@@ -110,7 +123,7 @@ def main():
     print("Checking installed benchmarks...\n")
 
     # Check each benchmark
-    for benchmark in ["aime", "gaia", "swebench", "gsm8k", "stark_amazon"]:
+    for benchmark in ["aime", "gaia", "swebench", "gsm8k", "stark_amazon", "ml_bench"]:
         run_benchmark_if_available(benchmark)
         print()
 
@@ -123,6 +136,7 @@ def main():
     print("  uv pip install -e '.[swebench]'")
     print("  uv pip install -e '.[gsm8k]'")
     print("  uv pip install -e '.[stark_amazon]'")
+    print("  uv pip install -e '.[ml_bench]'")
 
 
 if __name__ == "__main__":

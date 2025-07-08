@@ -15,6 +15,7 @@ ai-benchmarks/
 │   ├── gaia/              # GAIA benchmark (no external deps)
 │   ├── gsm8k/             # GSM8K benchmark (datasets)
 │   ├── stark_amazon/      # Stark Amazon benchmark (no external deps)
+│   ├── ml_bench/          # ML-Bench benchmark (datasets)
 │   └── swebench/          # SWE-bench (requires docker, datasets, etc.)
 │ 
 └── examples/              # Usage examples
@@ -40,6 +41,9 @@ uv pip install -e ".[gsm8k]"
 
 # Install core + Stark Amazon benchmark only
 uv pip install -e ".[stark_amazon]"
+
+# Install core + ML-Bench benchmark only
+uv pip install -e ".[ml_bench]"
 
 # Install core + SWE-bench only (includes heavy dependencies)
 uv pip install -e ".[swebench]"
@@ -145,4 +149,4 @@ aime = AIMEBenchmark()
 
 # Or specify custom path
 aime = AIMEBenchmark(data_dir="/custom/path/to/aime/tasks")
-``` 
+```
