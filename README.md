@@ -11,6 +11,7 @@ uv pip install -e ".[gaia]"        # Just GAIA (no external deps)
 uv pip install -e ".[swebench]"    # Just SWE-bench (Docker, datasets, etc.)
 uv pip install -e ".[gsm8k]"       # Just GSM8K (datasets)
 uv pip install -e ".[stark_amazon]" # Just Stark Amazon (no external deps)
+uv pip install -e ".[ml_bench]"    # Just ML-Bench (datasets)
 uv pip install -e ".[all]"         # Everything
 
 # Check what's installed
@@ -52,6 +53,10 @@ See [SETUP_GUIDE.md](SETUP_GUIDE.md) for detailed installation and usage instruc
     - A smaller, human-generated evaluation set for more nuanced validation.
 - See `benchmarks/stark_amazon/README.md` for details.
 
+### ML-Bench
+- A benchmark for evaluating LLMs and AI agents on repository-level machine learning tasks.
+- See `benchmarks/ml_bench/README.md` for details.
+
 ## Unified Interface
 
 All benchmarks implement a common interface defined in `base_benchmark.py`:
@@ -68,9 +73,10 @@ from benchmarks.gaia import GAIABenchmark
 from benchmarks.swebench import SWEBenchVerified
 from benchmarks.gsm8k import Gsm8kBenchmark
 from benchmarks.stark_amazon import StarkAmazonBenchmark
+from benchmarks.ml_bench import MLBenchBenchmark
 
 # Initialize
-benchmark = AIMEBenchmark()  # or GAIABenchmark(), SWEBenchVerified(), Gsm8kBenchmark(), StarkAmazonBenchmark()
+benchmark = AIMEBenchmark()  # or GAIABenchmark(), SWEBenchVerified(), Gsm8kBenchmark(), StarkAmazonBenchmark(), MLBenchBenchmark()
 
 # Get tasks
 task_ids = benchmark.get_task_ids()
@@ -105,6 +111,7 @@ if hasattr(benchmark, 'evaluate_with_execution'):
 - **GAIA**: Compare text answers with normalization
 - **GSM8K**: Compare numeric answers
 - **Stark Amazon**: Compare text answers
+- **ML-Bench**: Compare text answers
 
 These benchmarks inherit from `BaseBenchmark` and implement simple answer comparison.
 
@@ -123,6 +130,7 @@ See the `examples/` directory for complete examples:
 - `example_gaia.py` - GAIA usage example
 - `example_gsm8k.py` - GSM8K usage example
 - `example_stark_amazon.py` - Stark Amazon usage example
+- `example_ml_bench.py` - ML-Bench usage example
 - `unified_example.py` - Shows unified interface across all benchmarks
 
 Run examples from the project root:
@@ -131,6 +139,7 @@ python -m examples.example_aime
 python -m examples.example_gaia
 python -m examples.example_gsm8k
 python -m examples.example_stark_amazon
+python -m examples.example_ml_bench
 python -m examples.unified_example
 ```
 
@@ -139,7 +148,7 @@ python -m examples.unified_example
 ```
 ai-benchmarks/
 ├── pyproject.toml      # Root package with optional extras
-├── core/               # Core interfaces and models (minimal deps)
+├��─ core/               # Core interfaces and models (minimal deps)
 │   ├── __init__.py
 │   ├── base_benchmark.py
 │   └── models/
@@ -157,6 +166,9 @@ ai-benchmarks/
 │   ├── stark_amazon/   # Stark Amazon benchmark (no external deps)
 │   │   ├── stark_amazon.py
 │   │   └── tasks/
+│   ├── ml_bench/       # ML-Bench benchmark (datasets)
+│   │   ├── ml_bench.py
+│   │   └── tasks/
 │   └── swebench/       # SWE-bench (Docker, datasets, etc.)
 │       ├── swebench.py
 │       └── harness/
@@ -165,6 +177,7 @@ ai-benchmarks/
     ├── example_gaia.py
     ├── example_gsm8k.py
     ├── example_stark_amazon.py
+    ├── example_ml_bench.py
     ├── unified_example.py
     └── modular_usage_example.py
 ```

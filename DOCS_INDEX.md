@@ -14,6 +14,7 @@
 - **[benchmarks/browse_comp/README.md](benchmarks/browse_comp/README.md)** - BrowseComp benchmark details
 - **[benchmarks/gsm8k/README.md](benchmarks/gsm8k/README.md)** - GSM8K benchmark details
 - **[benchmarks/stark_amazon/README.md](benchmarks/stark_amazon/README.md)** - Stark Amazon benchmark details
+- **[benchmarks/ml_bench/README.md](benchmarks/ml_bench/README.md)** - ML-Bench benchmark details
 
 ## Key Files
 
@@ -29,4 +30,5 @@
 - **[examples/example_gaia.py](examples/example_gaia.py)** - GAIA usage
 - **[examples/example_browse_comp.py](examples/example_browse_comp.py)** - BrowseComp usage
 - **[examples/example_gsm8k.py](examples/example_gsm8k.py)** - GSM8K usage
-- **[examples/example_stark_amazon.py](examples/example_stark_amazon.py)** - Stark Amazon usage  
+- **[examples/example_stark_amazon.py](examples/example_stark_amazon.py)** - Stark Amazon usage
+- **[examples/example_ml_bench.py](examples/example_ml_bench.py)** - ML-Bench usage

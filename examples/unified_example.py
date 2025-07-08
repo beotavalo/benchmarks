@@ -1,7 +1,7 @@
 """
 Unified example demonstrating the common interface across all benchmarks.
 
-This shows how AIME, GAIA, and SWE-bench all implement the same base interface,
+This shows how AIME, GAIA, GSM8K, STARK AMAZON, ML BENCH and SWE-bench all implement the same base interface,
 allowing for consistent usage patterns.
 
 Run this from the project root directory:
@@ -13,6 +13,7 @@ from benchmarks.gaia import GAIABenchmark
 from benchmarks.swebench import SWEBenchVerified
 from benchmarks.gsm8k import Gsm8kBenchmark
 from benchmarks.stark_amazon import StarkAmazonBenchmark
+from benchmarks.ml_bench import MLBench
 
 
 def evaluate_on_benchmark(benchmark_class, model_output_func):
@@ -95,6 +96,14 @@ def main():
         return "This is a dummy answer."
 
     evaluate_on_benchmark(StarkAmazonBenchmark, stark_amazon_model)
+
+    # ML-Bench: Machine learning tasks
+    def ml_bench_model(task):
+        # A real model would generate code or a textual answer
+        # This just returns a dummy answer
+        return "This is a dummy answer for ML-Bench."
+
+    evaluate_on_benchmark(MLBench, ml_bench_model)
 
     # SWE-bench: Code patches
     def swebench_model(task):
